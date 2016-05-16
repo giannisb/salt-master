@@ -14,7 +14,8 @@ COPY saltstack.repo /etc/yum.repos.d/
 
 RUN yum clean expire-cache && \
 yum -y update && \
-yum -y install salt-master
+yum -y install salt-master && \
+yum clean all
 
 RUN useradd -r -s /bin/false salt -d  /var/cache/salt && \
 mkdir /var/run/salt && \
