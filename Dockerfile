@@ -3,16 +3,12 @@ FROM centos:centos7
 MAINTAINER Giannis Betas
 
 RUN yum -y update && \
-yum -y install epel-release && \
-yum -y install wget && \
-wget https://repo.saltstack.com/yum/rhel7/SALTSTACK-GPG-KEY.pub && \
+curl -O https://repo.saltstack.com/yum/redhat/latest/x86_64/2016.11/SALTSTACK-GPG-KEY.pub && \
 rpm --import SALTSTACK-GPG-KEY.pub && \
-rm -f SALTSTACK-GPG-KEY.pub && \
-yum clean all
-
-COPY saltstack.repo /etc/yum.repos.d/
-
-RUN yum clean expire-cache && \
+yum -y install https://repo.saltstack.com/yum/redhat/salt-repo-latest-1.el7.noarch.rpm && \
+# yum clean all
+#
+# RUN yum clean expire-cache && \
 yum -y update && \
 yum -y install salt-master && \
 yum clean all
