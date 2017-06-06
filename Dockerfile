@@ -5,7 +5,7 @@ MAINTAINER Giannis Betas
 RUN yum -y update && \
 curl -O https://repo.saltstack.com/yum/redhat/latest/x86_64/2016.11/SALTSTACK-GPG-KEY.pub && \
 rpm --import SALTSTACK-GPG-KEY.pub && \
-yum -y install https://repo.saltstack.com/yum/redhat/salt-repo-latest-1.el7.noarch.rpm && \
+yum -y install https://repo.saltstack.com/yum/redhat/salt-repo-latest-2.el7.noarch.rpm && \
 # yum clean all
 #
 # RUN yum clean expire-cache && \
